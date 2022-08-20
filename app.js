@@ -61,10 +61,11 @@ function placeInTable(y, x) {
 /** endGame: announce game end */
 function endGame(msg) {
   setTimeout(function () {
-    // I wanted to add a setTimeout function so the DOM could finish loading
+    // I wanted to add a setTimeout function so the DOM could finish loading and show the landing piece
     alert(msg);
+    window.location.reload();
   }, 10);
-  window.location.reload();
+  // window.location.reload();
 }
 
 // clicking top column
