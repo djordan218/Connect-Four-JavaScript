@@ -11,7 +11,6 @@ function makeBoard() {
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
-
 function makeHtmlBoard() {
   const htmlBoard = document.getElementById('board');
   const top = document.createElement('tr'); // creating variable for table row
@@ -31,10 +30,10 @@ function makeHtmlBoard() {
     // looking at height that is defined at top of code
     const row = document.createElement('tr'); // creating a row
     for (var x = 0; x < WIDTH; x++) {
-      // looping through the width variable to determine how many "columns" we will have
+      // looping through the width variable to determine how many cells we will have in a row
       const cell = document.createElement('td'); // add onto the row
-      cell.setAttribute('id', `${y}-${x}`); // adding id to cell
-      row.append(cell); // adding cell to the row (this tells us how many cells will be in a row)
+      cell.setAttribute('id', `${y}-${x}`); // adding id to cell that is looped through (so 0-1, 0-2, and then 1-1, 1-2, etc)
+      row.append(cell); // adding cells to the row
     }
     htmlBoard.append(row); // now we are appending row to the htmlBoard
   }
@@ -54,8 +53,8 @@ function placeInTable(y, x) {
   const piece = document.createElement('div'); // variable to create a div
   piece.classList.add('piece'); // adding CSS class to div
   piece.classList.add(`p${currPlayer}`); // adding a p1 or p2 class
-  piece.classList.add('fall');
-  const spot = document.getElementById(`${y}-${x}`); // creating a variable for the td column with id of #y-x
+  piece.classList.add('fall'); // added a fall animation
+  const spot = document.getElementById(`${y}-${x}`);
   spot.append(piece); // adding the div to that td column
 }
 
@@ -155,6 +154,21 @@ function checkForWin() {
     }
   }
 }
+
+// fun little function we were taught back in CSS that I really like that changes the colors of the text
+function randomRGB() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
+}
+
+const letters = document.querySelectorAll('.letter');
+const intervalId = setInterval(function () {
+  for (let letter of letters) {
+    letter.style.color = randomRGB();
+  }
+}, 500);
 
 makeBoard();
 makeHtmlBoard();

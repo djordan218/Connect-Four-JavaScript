@@ -9,8 +9,13 @@ body {
 h1 {
   font-family: Silkscreen;
   font-size: 60px;
-  -webkit-text-stroke: 1px;
-  -webkit-text-stroke-color: white;
+  -webkit-text-stroke: 0.25px;
+  -webkit-text-stroke-color: black;
+  margin-bottom: 10px;
+}
+
+.letter {
+  transition: color 2000ms;
 }
 
 h3 {
