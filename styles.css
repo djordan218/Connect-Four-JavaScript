@@ -1,0 +1,82 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(images/wallpaper.jpeg);
+}
+
+h1 {
+  font-family: Silkscreen;
+  font-size: 60px;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: white;
+}
+
+h3 {
+  font-family: Silkscreen;
+  font-size: 20px;
+}
+
+#counter {
+  color: white;
+}
+
+/* game board table */
+
+#board td {
+  width: 50px;
+  height: 50px;
+  border: solid 1.5px black;
+  border-radius: 5px;
+}
+
+/* pieces are div within game table cells: draw as colored circles */
+
+.piece {
+  /* TODO: make into circles */
+  margin: 5px;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+
+.p1 {
+  background-color: black;
+}
+
+.p2 {
+  background-color: white;
+}
+
+.fall {
+  animation-name: fall-animation;
+  animation-duration: 500ms;
+}
+
+@keyframes fall-animation {
+  from {
+    transform: translateY(-300px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* column-top is table row of clickable areas for each column */
+
+#column-top td {
+  border: solid 3px black;
+  border-radius: 5px;
+}
+
+#column-top td:hover {
+  background-color: gold;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.resetBtn {
+  border-radius: 5px;
+  font-family: Silkscreen;
+}
